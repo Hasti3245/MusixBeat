@@ -1,0 +1,21 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+env/
+
+# Environment variables
+.env
+
+# Database files
+*.db
+
+# IDE / Editor settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
