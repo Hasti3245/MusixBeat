@@ -1,0 +1,34 @@
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_number` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE albums (
+    album_id INT AUTO_INCREMENT PRIMARY KEY,
+    album_name VARCHAR(255) NOT NULL,
+    album_image VARCHAR(255)NULL
+);
+
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE album_songs (
+    song_id INT AUTO_INCREMENT PRIMARY KEY,
+    album_id INT NOT NULL,
+    song_path VARCHAR(255)NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES albums(album_id) ON DELETE CASCADE
+);
+
+CREATE TABLE songs_in_categories (
+    song_id INT AUTO_INCREMENT PRIMARY KEY,
+    song_name VARCHAR(255) NOT NULL,
+    category_id INT NOT NULL,  -- Foreign key to the categories table
+    duration TIME,             -- Optional: the song's duration
+    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
+);
